@@ -1,0 +1,31 @@
+<!-- public/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Magazin de Haine</title>
+</head>
+<body>
+    <h1>Bine ați venit la magazinul de haine!</h1>
+
+    <div id="clothing-list"></div>
+
+     <script>
+        fetch('/clothing')
+            .then(response => response.json())
+            .then(data => {
+                const clothingList = document.getElementById('clothing-list');
+                data.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.innerHTML = `<h2>${item.name} - ${item.price} RON</h2>`;
+                    clothingList.appendChild(itemElement);
+                });
+            })
+            
+    </script>
+
+    </script>
+</body>
+</html>

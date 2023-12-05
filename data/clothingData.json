@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name": "Tricou alb",
+        "category": "Tricouri",
+        "price": 70,
+        "image": "/images/tricou-alb.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Bluza neagra",
+        "category": "Bluze",
+        "price": 60,
+        "image": "/images/bluza-neagra.jpg"
+    }
+]
