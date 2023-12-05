@@ -2,18 +2,18 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs/promises');
 const ejs = require('ejs');
-const bodyParser = require('body-parser'); // Adaugă body-parser
+const bodyParser = require('body-parser'); 
 const app = express();
 const port = 3000;
 const mongoose = require('mongoose');
-const { User, Product } = require('./models'); // Asigură-te că calea către modelele tale este corectă
+const { User, Product } = require('./models'); 
 
 
 // Exemplu de utilizare a modelului User
 const newUser = new User({
   username: 'john_doe',
   email: 'john@example.com',
-  password: 'hashed_password', // Într-un proiect real, ar trebui să folosești o metodă de hashare a parolei
+  password: 'hashed_password', 
 });
 
 newUser.save((err, user) => {
@@ -53,18 +53,18 @@ db.once('open', function() {
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
-app.use(bodyParser.urlencoded({ extended: true })); // Adaugă body-parser
+app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// ...
+
 
 // Adaugă o rută pentru gestionarea datelor din formular
 app.post('/submit-form', (req, res) => {
     console.log('Date primite de la client:', req.body);
-    // Poți face orice altceva cu datele primite aici
-    res.send('Date primite cu succes!'); // Exemplu de răspuns către client
+    
+    res.send('Date primite cu succes!'); 
 });
 
 app.get('/clothing', async (req, res) => {
